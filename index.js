@@ -27,21 +27,22 @@ const updateDisplay = (randomWord, guessedLetters) => {
   let display = "";
   for (const letter of randomWord) {
     if (guessedLetters.includes(letter)) {
+      //iterating through each character of the randomWord
       display += letter;
     } else {
       display += "_";
     }
     display += " ";
   }
-  return display.trim();
+  return display.trim(); //trims any extra whitespace of the display string.
 };
 
 const updateGuesses = (maxGuesses, guessesTaken) => {
-  return maxGuesses - guessesTaken;
+  return maxGuesses - guessesTaken; //updates the number of remaining guesses.
 };
 const playAgain = () => {
   const answer = prompt.question("Do you want to play again? (yes/no): ");
-  return answer.toLowerCase() === "yes"; // check if the user wants to play again
+  return answer.toLowerCase() === "yes"; // checks if the user wants to play again
 };
 
 const startGame = () => {
@@ -56,7 +57,7 @@ const startGame = () => {
 
   while (guessesTaken < maxGuesses) {
     const remainingGuesses = updateGuesses(maxGuesses, guessesTaken);
-    console.log(`Remaining guesses:${remainingGuesses} `);
+    console.log(`Remaining guesses: ${remainingGuesses}`);
     const letter = prompt.question("Please guess a letter: "); //the letter inputted by the player during each iteration of the game loop
     const result = checkGuess(randomWord, letter);
     guessedLetters.push(letter);
@@ -66,6 +67,7 @@ const startGame = () => {
   }
   let wordGuessed = true; // Check if word is guessed
   randomWord.split("").forEach((letter) => {
+    //splitting the randomWord into an array of individual letters and iterating over each letter
     if (!guessedLetters.includes(letter)) {
       wordGuessed = false;
     }

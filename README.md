@@ -46,3 +46,9 @@ To start the game, run `node .`
 To end the game, press `ctrl + c`.
 The player will guess a letter over the command line. The player will type a single letter and hit `enter`.
 The game will stop when either a.) the player has guessed all the letters or b.) the player has made six incorrect guesses.
+
+## Contact
+
+Email address - stovkaniuk@gmail.com
+
+Project Link: https://github.com/svitlana-tov/HangmanProject
