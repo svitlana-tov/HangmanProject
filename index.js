@@ -3,6 +3,7 @@ import prompt from "readline-sync";
 
 let wins = 0;
 let losses = 0;
+let guessedLetters = []; //an array storing all guessed letters.
 
 const getRandomWord = () => {
   const randomIndex = Math.floor(Math.random() * wordBank.length);
@@ -12,6 +13,11 @@ const getRandomWord = () => {
 const checkGuess = (randomWord, guessedLetter) => {
   randomWord = randomWord.toLowerCase();
   guessedLetter = guessedLetter.toLowerCase();
+
+  if (guessedLetters.includes(guessedLetter)) {
+    return `You've already guessed "${guessedLetter}". Please try a different letter.`;
+  }
+
   if (randomWord.includes(guessedLetter)) {
     return `The word includes this letter`;
   } else {
@@ -50,7 +56,6 @@ const startGame = () => {
   let guessesTaken = 0;
   const randomWord = getRandomWord();
   const wordLength = randomWord.length;
-  let guessedLetters = []; //an array storing all guessed letters.
 
   const initialDisplay = initializeDisplay(wordLength);
   console.log("\nWelcome to Hangman!\nPress ctrl+c to stop\n");
